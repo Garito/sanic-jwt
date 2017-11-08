@@ -70,7 +70,7 @@ async def retrieve_user(request, *args, **kwargs):
 
     try:
         payload = request.app.auth.extract_payload(request)
-        user = request.app.auth.retrieve_user(request, payload)
+        user = await request.app.auth.retrieve_user(request, payload)
     except exceptions.MissingAuthorizationCookie:
         user = None
         payload = None
